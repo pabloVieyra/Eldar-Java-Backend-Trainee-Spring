@@ -1,7 +1,6 @@
 package com.pabloDev.eldar.controller;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,7 +32,7 @@ public class MarcaController {
 		 Marca temporal = marcaService.create(marca);
 		
 		try {
-			return ResponseEntity.created(new URI("/api/marca"+temporal.getId())).body(temporal);
+			return ResponseEntity.created(new URI("/api/persona"+temporal.getId())).body(temporal);
 			
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -42,21 +41,19 @@ public class MarcaController {
 	
 	
 	@GetMapping
-	private ResponseEntity<List<Marca>> listarTodasLasMarcas (){
-		return ResponseEntity.ok(marcaService.getAllMarcas());
+	private ResponseEntity<List<Marca>> listarTodasLasPersona (){
+		return ResponseEntity.ok(marcaService.getAllPersonas());
 	}
 	
 	@DeleteMapping
-	private ResponseEntity<Void> eliminarMarca (@RequestBody  Marca marca){
+	private ResponseEntity<Void> eliminarPersona (@RequestBody  Marca marca){
 		marcaService.delete(marca);
 		return ResponseEntity.ok().build();
 	}
 	
 	@GetMapping (value = "{id}")
-	private ResponseEntity<Optional<Marca>> listarMarcasPorID (@PathVariable ("id") Long id){
+	private ResponseEntity<Optional<Marca>> listarTarjetasPorID (@PathVariable ("id") Long id){
 		return ResponseEntity.ok(marcaService.findById(id));
 	}
-	
-
 
 }

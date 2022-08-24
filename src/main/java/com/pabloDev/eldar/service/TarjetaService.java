@@ -19,7 +19,7 @@ public class TarjetaService {
 		return tarjetaRepository.save(tarjeta);
 	}
 	
-	public List<Tarjeta> getAllTarjetas (){
+	public List<Tarjeta> getAllPersonas (){
 		return tarjetaRepository.findAll();
 	}
 	

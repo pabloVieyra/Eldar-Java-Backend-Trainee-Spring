@@ -31,7 +31,7 @@ public class CardHolderController {
 		CardHolder temporal = cardHolderService.create(cardHolder);
 		
 		try {
-			return ResponseEntity.created(new URI("/api/cardgolder"+temporal.getId())).body(temporal);
+			return ResponseEntity.created(new URI("/api/persona"+temporal.getId())).body(temporal);
 			
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -40,18 +40,18 @@ public class CardHolderController {
 	
 	
 	@GetMapping
-	private ResponseEntity<List<CardHolder>> listarTodasLoscardHolder (){
-		return ResponseEntity.ok(cardHolderService.getAllCardHolder());
+	private ResponseEntity<List<CardHolder>> listarTodasLasPersona (){
+		return ResponseEntity.ok(cardHolderService.getAllPersonas());
 	}
 	
 	@DeleteMapping
-	private ResponseEntity<Void> eliminarCardHolder (@RequestBody  CardHolder cardHolder){
+	private ResponseEntity<Void> eliminarPersona (@RequestBody  CardHolder cardHolder){
 		cardHolderService.delete(cardHolder);
 		return ResponseEntity.ok().build();
 	}
 	
 	@GetMapping (value = "{id}")
-	private ResponseEntity<Optional<CardHolder>> listarCardHolderPorID (@PathVariable ("id") Long id){
+	private ResponseEntity<Optional<CardHolder>> listarTarjetasPorID (@PathVariable ("id") Long id){
 		return ResponseEntity.ok(cardHolderService.findById(id));
 	}
 
