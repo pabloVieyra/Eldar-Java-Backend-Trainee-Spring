@@ -1,6 +1,6 @@
 # Eldar-Java-Backend-Trainee-Spring
 Este es el repositorio para el ejercicio Java Backend de eldar, este es la segunda implementación que donde después de un análisis 
-determine usar el Ide:SpringTools y la version de java 1.8 o 8
+determine usar el Ide:SpringTools y la version de java 1.8 o 8,
 Documentacion de la app en : http://localhost:8080/swagger-ui.html
 
 ## Documentacion
