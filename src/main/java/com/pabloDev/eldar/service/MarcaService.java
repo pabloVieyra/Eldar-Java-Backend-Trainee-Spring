@@ -22,7 +22,7 @@ public class MarcaService {
 		return marcaRepository.save(marca);
 	}
 	
-	public List<Marca> getAllPersonas (){
+	public List<Marca> getAllMarcas (){
 		return marcaRepository.findAll();
 	}
 	

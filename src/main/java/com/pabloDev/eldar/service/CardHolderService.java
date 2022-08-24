@@ -20,7 +20,7 @@ public class CardHolderService {
 		return cardHolderRepository.save(cardHolder);
 	}
 	
-	public List<CardHolder> getAllPersonas (){
+	public List<CardHolder> getAllCardHolder (){
 		return cardHolderRepository.findAll();
 	}
 	

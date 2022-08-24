@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pabloDev.eldar.persistence.entity.Marca;
 import com.pabloDev.eldar.persistence.entity.Transaccion;
 import com.pabloDev.eldar.service.TransaccionService;
 
@@ -27,33 +28,21 @@ public class TransaccionController {
 	@Autowired
 	private TransaccionService transaccionService;
 	
-	@PostMapping
-	private ResponseEntity<Transaccion> guardar (@RequestBody Transaccion transaccion){
-		Transaccion temporal = transaccionService.create(transaccion);
-		
-		try {
-			return ResponseEntity.created(new URI("/api/persona"+temporal.getId())).body(temporal);
-			
-		}catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-		}
-	}
 	
+
 	
-	@GetMapping
-	private ResponseEntity<List<Transaccion>> listarTodasLasPersona (){
-		return ResponseEntity.ok(transaccionService.getAllPersonas());
-	}
-	
-	@DeleteMapping
-	private ResponseEntity<Void> eliminarPersona (@RequestBody Transaccion transaccion){
-		transaccionService.delete(transaccion);
-		return ResponseEntity.ok().build();
-	}
-	
+
 	@GetMapping (value = "{id}")
 	private ResponseEntity<Optional<Transaccion>> listarTarjetasPorID (@PathVariable ("id") Long id){
 		return ResponseEntity.ok(transaccionService.findById(id));
 	}
+	
+	
+	@GetMapping("{marca}/operation/{amount}")
+    public ResponseEntity<Long> getcalcularTasa(@PathVariable String marca, @PathVariable int amount) {
+     
+		return ResponseEntity.ok(transaccionService.getcalcularTasa(marca, amount));
+    }
+    
 
 }
