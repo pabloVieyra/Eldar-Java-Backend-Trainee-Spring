@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.pabloDev.eldar.persistence.entity.CardHolder;
 import com.pabloDev.eldar.persistence.repository.CardHolderRepository;
 
+//aqui va la capa de la logica de negocios
 
 @Service
 public class CardHolderService {
@@ -20,7 +21,7 @@ public class CardHolderService {
 		return cardHolderRepository.save(cardHolder);
 	}
 	
-	public List<CardHolder> getAllPersonas (){
+	public List<CardHolder> getAllCardHolder (){
 		return cardHolderRepository.findAll();
 	}
 	

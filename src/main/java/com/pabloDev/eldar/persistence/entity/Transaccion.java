@@ -1,6 +1,9 @@
 package com.pabloDev.eldar.persistence.entity;
 
 import javax.persistence.Entity;
+
+//aqui va la capa de datos de Transaccion
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;

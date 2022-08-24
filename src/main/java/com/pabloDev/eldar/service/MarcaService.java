@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.pabloDev.eldar.persistence.entity.Marca;
 import com.pabloDev.eldar.persistence.repository.MarcaRepository;
 
-
+//aqui va la capa de la logica de negocios
 
 
 @Service
@@ -22,7 +22,7 @@ public class MarcaService {
 		return marcaRepository.save(marca);
 	}
 	
-	public List<Marca> getAllPersonas (){
+	public List<Marca> getAllMarcas (){
 		return marcaRepository.findAll();
 	}
 	

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pabloDev.eldar.persistence.entity.Marca;
 import com.pabloDev.eldar.service.MarcaService;
 
+//Esta es la clase Controller de el Marcatambien conocida la capa mas proxima al usuario)
 
 
 @RestController
@@ -32,7 +33,7 @@ public class MarcaController {
 		 Marca temporal = marcaService.create(marca);
 		
 		try {
-			return ResponseEntity.created(new URI("/api/persona"+temporal.getId())).body(temporal);
+			return ResponseEntity.created(new URI("/api/marca"+temporal.getId())).body(temporal);
 			
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -41,18 +42,18 @@ public class MarcaController {
 	
 	
 	@GetMapping
-	private ResponseEntity<List<Marca>> listarTodasLasPersona (){
-		return ResponseEntity.ok(marcaService.getAllPersonas());
+	private ResponseEntity<List<Marca>> listarTodasLasMarcas (){
+		return ResponseEntity.ok(marcaService.getAllMarcas());
 	}
 	
 	@DeleteMapping
-	private ResponseEntity<Void> eliminarPersona (@RequestBody  Marca marca){
+	private ResponseEntity<Void> eliminarMarca (@RequestBody  Marca marca){
 		marcaService.delete(marca);
 		return ResponseEntity.ok().build();
 	}
 	
 	@GetMapping (value = "{id}")
-	private ResponseEntity<Optional<Marca>> listarTarjetasPorID (@PathVariable ("id") Long id){
+	private ResponseEntity<Optional<Marca>> listarMarcasPorID (@PathVariable ("id") Long id){
 		return ResponseEntity.ok(marcaService.findById(id));
 	}
 

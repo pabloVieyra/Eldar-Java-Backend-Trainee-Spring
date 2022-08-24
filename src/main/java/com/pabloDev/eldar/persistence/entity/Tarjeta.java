@@ -2,6 +2,8 @@ package com.pabloDev.eldar.persistence.entity;
 
 import java.time.LocalDate;
 
+//aqui va la capa de datos de Tarjeta
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

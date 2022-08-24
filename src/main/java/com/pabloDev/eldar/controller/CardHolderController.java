@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pabloDev.eldar.persistence.entity.CardHolder;
 import com.pabloDev.eldar.service.CardHolderService;
 
-
+//Esta es la clase Controller de el CardHome(tambien conocida la capa mas proxima al usuario)
 
 @RestController
 @RequestMapping ("/api/cardholder/")
@@ -31,7 +31,7 @@ public class CardHolderController {
 		CardHolder temporal = cardHolderService.create(cardHolder);
 		
 		try {
-			return ResponseEntity.created(new URI("/api/persona"+temporal.getId())).body(temporal);
+			return ResponseEntity.created(new URI("/api/cardgolder"+temporal.getId())).body(temporal);
 			
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -40,18 +40,18 @@ public class CardHolderController {
 	
 	
 	@GetMapping
-	private ResponseEntity<List<CardHolder>> listarTodasLasPersona (){
-		return ResponseEntity.ok(cardHolderService.getAllPersonas());
+	private ResponseEntity<List<CardHolder>> listarTodasLoscardHolder (){
+		return ResponseEntity.ok(cardHolderService.getAllCardHolder());
 	}
 	
 	@DeleteMapping
-	private ResponseEntity<Void> eliminarPersona (@RequestBody  CardHolder cardHolder){
+	private ResponseEntity<Void> eliminarCardHolder(@RequestBody  CardHolder cardHolder){
 		cardHolderService.delete(cardHolder);
 		return ResponseEntity.ok().build();
 	}
 	
 	@GetMapping (value = "{id}")
-	private ResponseEntity<Optional<CardHolder>> listarTarjetasPorID (@PathVariable ("id") Long id){
+	private ResponseEntity<Optional<CardHolder>> listarCardHolderPorID (@PathVariable ("id") Long id){
 		return ResponseEntity.ok(cardHolderService.findById(id));
 	}
 

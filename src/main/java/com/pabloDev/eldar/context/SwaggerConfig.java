@@ -1,5 +1,7 @@
 package com.pabloDev.eldar.context;
 
+//esta clase va toda la configuracion de swagger
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;

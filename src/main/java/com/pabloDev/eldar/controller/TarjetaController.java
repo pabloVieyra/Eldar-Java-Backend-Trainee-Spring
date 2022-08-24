@@ -1,6 +1,10 @@
 package com.pabloDev.eldar.controller;
 
 import java.net.URI;
+
+//Esta es la clase Controller de el Tarjeta(tambien conocida la capa mas proxima al usuario)
+
+
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +34,7 @@ public class TarjetaController {
 		Tarjeta temporal = tarjetaService.create(tarjeta);
 		
 		try {
-			return ResponseEntity.created(new URI("/api/persona"+temporal.getId())).body(temporal);
+			return ResponseEntity.created(new URI("/api/tarjeta"+temporal.getId())).body(temporal);
 			
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -39,12 +43,12 @@ public class TarjetaController {
 	
 	
 	@GetMapping
-	private ResponseEntity<List<Tarjeta>> listarTodasLasPersona (){
-		return ResponseEntity.ok(tarjetaService.getAllPersonas());
+	private ResponseEntity<List<Tarjeta>> listarTodasLasTarjetas (){
+		return ResponseEntity.ok(tarjetaService.getAllTarjetas());
 	}
 	
 	@DeleteMapping
-	private ResponseEntity<Void> eliminarPersona (@RequestBody Tarjeta tarjeta){
+	private ResponseEntity<Void> eliminarTarjeta (@RequestBody Tarjeta tarjeta){
 		tarjetaService.delete(tarjeta);
 		return ResponseEntity.ok().build();
 	}

@@ -1,6 +1,8 @@
 package com.pabloDev.eldar.service;
 
 import java.util.List;
+
+//aqui va la capa de la logica de negocios
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,7 @@ public class TarjetaService {
 		return tarjetaRepository.save(tarjeta);
 	}
 	
-	public List<Tarjeta> getAllPersonas (){
+	public List<Tarjeta> getAllTarjetas (){
 		return tarjetaRepository.findAll();
 	}
 	
